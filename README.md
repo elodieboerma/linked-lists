@@ -1,3 +1,5 @@
+This project is just a way to help me practice working with linked lists.
+
 list of commands run/packages installed in terminal:
 1 (created package.json file): npm init -y --init-type=module
 2 (created empty config file to let editors and other tools know of Prettier usage):
