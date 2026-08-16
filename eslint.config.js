@@ -1,6 +1,6 @@
 import pluginJest from "eslint-plugin-jest";
 
-export default([
+export default [
   {
     // update this to match your test files
     files: ["src/*.js", "src/*-spec.js"],
@@ -16,4 +16,4 @@ export default([
       "jest/valid-expect": "error",
     },
   },
-]);
+];
