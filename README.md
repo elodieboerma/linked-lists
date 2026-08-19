@@ -1,6 +1,5 @@
 This project is just a way to help me practice working with linked lists.
 
-    *1 (install it if images are referenced directly in HTML file) npm install --save-dev html-loader*
     *2 (once git push origin main has been run once):
         git branch gh-pages
         --don't forget to switch source branch to this in github pages*
