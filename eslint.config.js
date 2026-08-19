@@ -3,7 +3,7 @@ import pluginJest from "eslint-plugin-jest";
 export default [
   {
     // update this to match your test files
-    files: ["src/*.js", "src/*-spec.js"],
+    files: ["src/index.js", "src/index.spec.js"],
     plugins: { jest: pluginJest },
     languageOptions: {
       globals: pluginJest.environments.globals.globals,
