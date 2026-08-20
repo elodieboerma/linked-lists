@@ -2,12 +2,23 @@ import "./styles.css";
 
 // contains the whole linked list
 class LinkedList {
-  constructor() {}
+  constructor() {
+    this.head = null;
+  }
   append(value) {
     //adds new node to the end of the list
+    const newNode = new Node(value);
+    let current;
+    if (this == null) {
+      this.head = newNode;
+      current = newNode;
+    } else {
+      current.next = newNode;
+    }
   }
   prepend(value) {
     //adds new node to the start of the list
+    const newNode = new Node(value);
   }
   size() {
     //returns the total number of nodes in the list
