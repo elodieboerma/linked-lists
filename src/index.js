@@ -5,10 +5,10 @@ export class LinkedList {
   append(value) {
     //adds new node to the end of the list
     const newNode = new Node(value);
-    let current = this.head;
     if (this == null) {
       this.head = newNode;
     } else {
+      var current = this.head;
       while (current.next != null) {
         current = current.next;
       }
