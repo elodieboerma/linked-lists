@@ -158,8 +158,8 @@ export class LinkedList {
 }
 
 class Node {
-  constructor(value = null, next = null) {
+  constructor(value) {
     this.value = value;
-    this.next = next;
+    this.next = null;
   }
 }
