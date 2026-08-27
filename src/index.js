@@ -1,6 +1,3 @@
-import "./styles.css";
-
-// contains the whole linked list
 export class LinkedList {
   constructor() {
     this.head = null;
