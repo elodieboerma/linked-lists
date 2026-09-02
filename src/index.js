@@ -5,7 +5,7 @@ export class LinkedList {
   append(value) {
     //adds new node to the end of the list
     const newNode = new Node(value);
-    if (this == null) {
+    if (this.head == null) {
       this.head = newNode;
     } else {
       var current = this.head;
@@ -18,11 +18,12 @@ export class LinkedList {
   prepend(value) {
     //adds new node to the start of the list
     const newNode = new Node(value);
-    if (this == null) {
+    if (this.head == null) {
       this.head = newNode;
     } else {
-      this.head.next = this.head;
+      let curValue = this.head;
       this.head = newNode;
+      this.head.next = curValue;
     }
   }
   size() {
@@ -35,35 +36,35 @@ export class LinkedList {
     }
     return count;
   }
-  head() {
+  headMethod() {
     //returns the first node in the list, undefined if list is empty
-    if (this == null) {
+    if (this.head == null) {
       return undefined;
     } else {
-      return this.head;
+      return this.head.value;
     }
   }
-  tail() {
+  tailMethod() {
     //returns the last node in the list, undefined if list is empty
-    if (this == null) {
+    if (this.head == null) {
       return undefined;
     } else {
       let current = this.head;
       while (current.next != null) {
         current = current.next;
       }
-      return current;
+      return current.value;
     }
   }
   at(index) {
     //returns the node at the given index, undefined if no node at index
-    if (this == null) {
+    if (this.head == null || index >= this.size()) {
       return undefined;
     } else {
       let current = this.head;
       for (var i = 0; i < index+1; i++) {
         if (i == index) {
-          return current;
+          return current.value;
         }
         current = current.next;
       }
@@ -71,11 +72,15 @@ export class LinkedList {
   }
   pop() {
     //removes the head node and returns its value, undefined if list is empty
-    if (this == null) {
+    if (this.head == null) {
       return undefined;
     } else {
       let oldHead = this.head;
-      this.head = this.head.next;
+      let newHead = this.head.next;
+      let newNextNode = newHead.next;
+      //this.head = this.head.next;
+      this.head = newHead;
+      this.head.next = newNextNode;
       return oldHead.value;
     }
   }
@@ -118,6 +123,8 @@ export class LinkedList {
       return str + "null";
     }
   }
+
+  // extra credit methods from here on down
   insertAt(index, ...values) {
     //inserts new nodes with the provided values at the given index
     if (index < 0 || index > this.size()) {
