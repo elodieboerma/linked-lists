@@ -14,8 +14,8 @@ list.prepend("fish");
 console.log(list.toString());
 console.log(list.size());
 
-console.log(`Node at [3]: ${list.at(3).toString()}`);
-console.log(`Node at [10]: ${list.at(10)}`);
+console.log(`Node at [3]: ${list.nodeAt(3).toString()}`);
+console.log(`Node at [10]: ${list.nodeAt(10)}`);
 
 
 console.log(`Removed head node: ${list.pop()}`);
@@ -37,3 +37,5 @@ console.log(`Index of "dog": ${list.findIndex("dog")}`);
 
 //
 //extra credit methods
+list.insertAt(2, "bunny", "lizard");
+console.log(list.toString());

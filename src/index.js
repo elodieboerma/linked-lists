@@ -56,7 +56,7 @@ export class LinkedList {
       return current.value;
     }
   }
-  at(index) {
+  nodeAt(index) {
     //returns the node at the given index, undefined if no node at index
     if (this.head == null || index >= this.size()) {
       return undefined;
@@ -130,17 +130,20 @@ export class LinkedList {
     if (index < 0 || index > this.size()) {
       throw RangeError("Index out of bounds");
     } else {
-      let current = this.head;
-      let insertionPoint = this.at(index);
-      let prevPoint = this.at(index - 1);
+      let current = this.findIndex(this.head);
+      let insertionPoint = this.nodeAt(index);
+      insertionPoint = this.findIndex(insertionPoint);
+      let prevPoint = this.nodeAt(index - 1);
+      prevPoint = this.findIndex(prevPoint);
       while (current != null) {
         if (current == insertionPoint) {
           for (let value of values) {
             const newNode = new Node(value);
+            let newNextNode = current;
             prevPoint.next = newNode;
-            prevPoint = newNode;
-            return;
+            newNode.next = newNextNode;
           }
+          return;
         }
         current = current.next;
       }
