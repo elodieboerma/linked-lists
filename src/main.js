@@ -39,3 +39,6 @@ console.log(`Index of "dog": ${list.findIndex("dog")}`);
 //extra credit methods
 list.insertAt(2, "bunny", "lizard");
 console.log(list.toString());
+//
+list.removeAt(5);
+console.log(list.toString());

@@ -155,8 +155,8 @@ export class LinkedList {
       throw RangeError("Index out of bounds");
     } else {
       let current = this.head;
-      let removalPoint = this.at(index);
-      let prevPoint = this.at(index - 1);
+      let removalPoint = this.nodeAt(index);
+      let prevPoint = this.nodeAt(index - 1);
       while (current != null) {
         if (current == removalPoint) {
           prevPoint.next = current.next;
