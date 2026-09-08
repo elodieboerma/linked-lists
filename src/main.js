@@ -29,10 +29,8 @@ console.log(`Tail: ${list.tailMethod()}`);
 console.log(`Contains "bunny": ${list.contains("bunny")}`);
 console.log(`Contains "turtle": ${list.contains("turtle")}`);
 
-//
 console.log(`Index of "parrot": ${list.findIndex("parrot")}`);
 console.log(`Index of "bunny": ${list.findIndex("bunny")}`);
-//
 console.log(`Index of "dog": ${list.findIndex("dog")}`);
 
 //

@@ -99,11 +99,13 @@ export class LinkedList {
     //returns the index of the node containing the value, -1 if not found, or index of 1st node if multiple
     // nodes contain the value
     let current = this.head;
+    let indexNum = 0;
     while (current != null) {
       if (current.value == value) {
-        return current.index;
+        return indexNum;
       }
       current = current.next;
+      indexNum++;
     }
     return -1;
   }
