@@ -166,8 +166,11 @@ export class LinkedList {
       let removalPoint = this.nodeAt(index);
       let prevPoint = this.nodeAt(index - 1);
       while (current != null) {
-        if (current == removalPoint) {
-          prevPoint.next = current.next;
+        if (current.value == removalPoint) {
+          let newNextNode = current.next;
+          console.log(`newNextNode: ${newNextNode.value}`);
+          prevPoint.next = newNextNode;
+          console.log(`prevPoint.next: ${prevPoint.next.value}`);
         }
         current = current.next;
       }
