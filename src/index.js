@@ -132,18 +132,24 @@ export class LinkedList {
     if (index < 0 || index > this.size()) {
       throw RangeError("Index out of bounds");
     } else {
-      let current = this.findIndex(this.head);
+      let current = this.head;
       let insertionPoint = this.nodeAt(index);
-      insertionPoint = this.findIndex(insertionPoint);
-      let prevPoint = this.nodeAt(index - 1);
-      prevPoint = this.findIndex(prevPoint);
       while (current != null) {
-        if (current == insertionPoint) {
+        //
+        if (current.value == insertionPoint.value) {
+          console.log(`current.value: ${current.value}`);
+          let prevPoint = this.nodeAt(index - 1); //cat
+          console.log(`prevPoint: ${prevPoint}`);
+          console.log(`prevPoint.value: ${prevPoint.value}`);
           for (let value of values) {
-            const newNode = new Node(value);
-            let newNextNode = current;
-            prevPoint.next = newNode;
-            newNode.next = newNextNode;
+            const newNode = new Node(value); //bunny; lizard
+            console.log(`newNode: ${newNode.value}`);
+            prevPoint.next = newNode; //cat.next=bunny; bunny.next=lizard
+            console.log(`prevPoint.next: ${prevPoint.next.value}`);
+            let newNextNode = current; //parrot; parrot
+            console.log(`newNextNode: ${newNextNode.value}`);
+            newNode.next = newNextNode; //bunny.next=parrot; lizard.next=parrot
+            console.log(`newNode.next: ${newNode.next.value}`);
           }
           return;
         }
