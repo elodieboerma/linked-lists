@@ -129,13 +129,9 @@ export class LinkedList {
         let currentIndex = this.findIndex(currentNode.value);
         if (currentIndex == (index-1)) {
           for (let value of values) {
-            console.log(`currentNode: ${currentNode.value}`);
             const newNode = new Node(value);
             currentNode.next = newNode;
-            console.log(`newNode: ${currentNode.next.value}`);
             newNode.next = insertionPoint;
-            //says parrot/rest of og list is undefined
-            console.log(this.toString());
             currentNode = currentNode.next;
           }
           return;
@@ -153,13 +149,8 @@ export class LinkedList {
       while (currentNode != null) {
         let currentIndex = this.findIndex(currentNode.value);
         if (currentIndex == (index-1)) {
-          console.log(`currentNode: ${currentNode.value}`);
           let newNextNode = removalPoint.next;
-          //error says cannot read undefined when .value
-          console.log(`newNextNode: ${newNextNode}`);
           currentNode.next = newNextNode;
-          //prints undefined, whole rest of list cut off
-          console.log(`currentNode.next: ${currentNode.next}`);
         }
         currentNode = currentNode.next;
       }
