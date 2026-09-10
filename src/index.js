@@ -149,17 +149,20 @@ export class LinkedList {
     if (index < 0 || index >= this.size()) {
       throw RangeError("Index out of bounds");
     } else {
-      let current = this.head;
+      let currentNode = this.head;
       let removalPoint = this.nodeAt(index);
-      let prevPoint = this.nodeAt(index - 1);
-      while (current != null) {
-        if (current.value == removalPoint) {
-          let newNextNode = current.next;
-          console.log(`newNextNode: ${newNextNode.value}`);
-          prevPoint.next = newNextNode;
-          console.log(`prevPoint.next: ${prevPoint.next.value}`);
+      while (currentNode != null) {
+        let currentIndex = this.findIndex(currentNode.value);
+        if (currentIndex == (index-1)) {
+          console.log(`currentNode: ${currentNode.value}`);
+          let newNextNode = removalPoint.next;
+          //error says cannot read undefined when .value
+          console.log(`newNextNode: ${newNextNode}`);
+          currentNode.next = newNextNode;
+          //prints undefined, whole rest of list cut off
+          console.log(`currentNode.next: ${currentNode.next}`);
         }
-        current = current.next;
+        currentNode = currentNode.next;
       }
     }
   }
