@@ -3,7 +3,6 @@ export class LinkedList {
     this.head = null;
   }
   append(value) {
-    //adds new node to the end of the list
     const newNode = new Node(value);
     if (this.head == null) {
       this.head = newNode;
@@ -16,7 +15,6 @@ export class LinkedList {
     }
   }
   prepend(value) {
-    //adds new node to the start of the list
     const newNode = new Node(value);
     if (this.head == null) {
       this.head = newNode;
@@ -27,7 +25,6 @@ export class LinkedList {
     }
   }
   size() {
-    //returns the total number of nodes in the list
     let count = 0;
     let current = this.head;
     while (current != null) {
@@ -37,7 +34,7 @@ export class LinkedList {
     return count;
   }
   headMethod() {
-    //returns the first node in the list, undefined if list is empty
+    //returns undefined if list is empty
     if (this.head == null) {
       return undefined;
     } else {
@@ -45,7 +42,7 @@ export class LinkedList {
     }
   }
   tailMethod() {
-    //returns the last node in the list, undefined if list is empty
+    //returns undefined if list is empty
     if (this.head == null) {
       return undefined;
     } else {
@@ -57,7 +54,7 @@ export class LinkedList {
     }
   }
   nodeAt(index) {
-    //returns the node at the given index, undefined if no node at index
+    //returns undefined if no node at index
     if (this.head == null || index >= this.size()) {
       return undefined;
     } else {
@@ -85,7 +82,6 @@ export class LinkedList {
     }
   }
   contains(value) {
-    //returns true if the passed in value is in the list and otherwise returns false
     let current = this.head;
     while (current != null) {
       if (current.value == value) {
@@ -96,8 +92,7 @@ export class LinkedList {
     return false;
   }
   findIndex(value) {
-    //returns the index of the node containing the value, -1 if not found, or index of 1st node if multiple
-    // nodes contain the value
+    //returns the index of the node containing the value, -1 if not found, or index of 1st instance/copy
     let current = this.head;
     let indexNum = 0;
     while (current != null) {
@@ -110,9 +105,6 @@ export class LinkedList {
     return -1;
   }
   toString() {
-    //returns a string representation of the list (so can be printed/previewed in console) in the format:
-    // ( value ) -> ( value ) -> ( value ) -> null
-    // or undefined if list is empty
     if (this == null) {
       return undefined;
     } else {
@@ -128,19 +120,14 @@ export class LinkedList {
 
   // extra credit methods from here on down
   insertAt(index, ...values) {
-    //inserts new nodes with the provided values at the given index
     if (index < 0 || index > this.size()) {
       throw RangeError("Index out of bounds");
     } else {
       let currentNode = this.head;
-      //let currentIndex = 0;
       let insertionPoint = this.nodeAt(index);
-      //let insertionPoint = this.findIndex(insertionPoint.value);
       while (currentNode != null) {
-        //
         let currentIndex = this.findIndex(currentNode.value);
-        if (currentIndex == index)
-        /*if (currentNode.value == insertionPoint.value)*/ {
+        if (currentIndex == index) {
           console.log(`current.value: ${currentNode.value}`);
           let prevPoint = this.nodeAt(index - 1);
           console.log(`prevPoint: ${prevPoint}`);
@@ -162,7 +149,6 @@ export class LinkedList {
     }
   }
   removeAt(index) {
-    //removes the node at the given index
     if (index < 0 || index >= this.size()) {
       throw RangeError("Index out of bounds");
     } else {
