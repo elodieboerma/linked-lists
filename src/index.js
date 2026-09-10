@@ -61,7 +61,7 @@ export class LinkedList {
       let current = this.head;
       for (var i = 0; i < index+1; i++) {
         if (i == index) {
-          return current.value;
+          return current;
         }
         current = current.next;
       }
@@ -128,7 +128,6 @@ export class LinkedList {
       while (currentNode != null) {
         let currentIndex = this.findIndex(currentNode.value);
         if (currentIndex == (index-1)) {
-          console.log(`currentNode: ${currentNode.value}`);
           for (let value of values) {
             console.log(`currentNode: ${currentNode.value}`);
             const newNode = new Node(value);
@@ -136,7 +135,7 @@ export class LinkedList {
             console.log(`newNode: ${currentNode.next.value}`);
             newNode.next = insertionPoint;
             //says parrot/rest of og list is undefined
-            console.log(`newNode.next: ${newNode.next}`);
+            console.log(this.toString());
             currentNode = currentNode.next;
           }
           return;
