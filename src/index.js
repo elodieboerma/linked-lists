@@ -59,7 +59,7 @@ export class LinkedList {
       return undefined;
     } else {
       let current = this.head;
-      for (var i = 0; i < index+1; i++) {
+      for (var i = 0; i < index + 1; i++) {
         if (i == index) {
           return current;
         }
@@ -127,7 +127,7 @@ export class LinkedList {
       let insertionPoint = this.nodeAt(index);
       while (currentNode != null) {
         let currentIndex = this.findIndex(currentNode.value);
-        if (currentIndex == (index-1)) {
+        if (currentIndex == index - 1) {
           for (let value of values) {
             const newNode = new Node(value);
             currentNode.next = newNode;
@@ -148,7 +148,7 @@ export class LinkedList {
       let removalPoint = this.nodeAt(index);
       while (currentNode != null) {
         let currentIndex = this.findIndex(currentNode.value);
-        if (currentIndex == (index-1)) {
+        if (currentIndex == index - 1) {
           let newNextNode = removalPoint.next;
           currentNode.next = newNextNode;
         }

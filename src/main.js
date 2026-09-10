@@ -17,7 +17,6 @@ console.log(list.size());
 console.log(`Node at [3]: ${list.nodeAt(3).toString()}`);
 console.log(`Node at [10]: ${list.nodeAt(10)}`);
 
-
 console.log(`Removed head node: ${list.pop()}`);
 console.log(list.toString());
 console.log(`Head: ${list.headMethod()}`);
