@@ -127,20 +127,17 @@ export class LinkedList {
       let insertionPoint = this.nodeAt(index);
       while (currentNode != null) {
         let currentIndex = this.findIndex(currentNode.value);
-        if (currentIndex == index) {
-          console.log(`current.value: ${currentNode.value}`);
-          let prevPoint = this.nodeAt(index - 1);
-          console.log(`prevPoint: ${prevPoint}`);
+        if (currentIndex == (index-1)) {
+          console.log(`currentNode: ${currentNode.value}`);
           for (let value of values) {
+            console.log(`currentNode: ${currentNode.value}`);
             const newNode = new Node(value);
-            console.log(`newNode: ${newNode.value}`); //bunny; lizard
-            //says cat is a string, not a node
-            prevPoint.next = newNode; //cat.next=bunny; bunny.next=lizard
-            console.log(`prevPoint.next: ${prevPoint.next}`);
-            let newNextNode = currentNode; //parrot; parrot
-            console.log(`newNextNode: ${newNextNode.value}`);
-            newNode.next = newNextNode; //bunny.next=parrot; lizard.next=parrot
-            console.log(`newNode.next: ${newNode.next.value}`);
+            currentNode.next = newNode;
+            console.log(`newNode: ${currentNode.next.value}`);
+            newNode.next = insertionPoint;
+            //says parrot/rest of og list is undefined
+            console.log(`newNode.next: ${newNode.next}`);
+            currentNode = currentNode.next;
           }
           return;
         }
