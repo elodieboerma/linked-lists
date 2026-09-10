@@ -132,28 +132,32 @@ export class LinkedList {
     if (index < 0 || index > this.size()) {
       throw RangeError("Index out of bounds");
     } else {
-      let current = this.head;
+      let currentNode = this.head;
+      //let currentIndex = 0;
       let insertionPoint = this.nodeAt(index);
-      while (current != null) {
+      //let insertionPoint = this.findIndex(insertionPoint.value);
+      while (currentNode != null) {
         //
-        if (current.value == insertionPoint.value) {
-          console.log(`current.value: ${current.value}`);
-          let prevPoint = this.nodeAt(index - 1); //cat
+        let currentIndex = this.findIndex(currentNode.value);
+        if (currentIndex == index)
+        /*if (currentNode.value == insertionPoint.value)*/ {
+          console.log(`current.value: ${currentNode.value}`);
+          let prevPoint = this.nodeAt(index - 1);
           console.log(`prevPoint: ${prevPoint}`);
-          console.log(`prevPoint.value: ${prevPoint.value}`);
           for (let value of values) {
-            const newNode = new Node(value); //bunny; lizard
-            console.log(`newNode: ${newNode.value}`);
+            const newNode = new Node(value);
+            console.log(`newNode: ${newNode.value}`); //bunny; lizard
+            //says cat is a string, not a node
             prevPoint.next = newNode; //cat.next=bunny; bunny.next=lizard
-            console.log(`prevPoint.next: ${prevPoint.next.value}`);
-            let newNextNode = current; //parrot; parrot
+            console.log(`prevPoint.next: ${prevPoint.next}`);
+            let newNextNode = currentNode; //parrot; parrot
             console.log(`newNextNode: ${newNextNode.value}`);
             newNode.next = newNextNode; //bunny.next=parrot; lizard.next=parrot
             console.log(`newNode.next: ${newNode.next.value}`);
           }
           return;
         }
-        current = current.next;
+        currentNode = currentNode.next;
       }
     }
   }
